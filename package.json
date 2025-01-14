@@ -1,0 +1,24 @@
+{
+  "name": "formstramon",
+  "version": "1.0.0",
+  "description": "Este projeto foi desenvolvido com o objetivo de automatizar o processo de preenchimento de formulários online utilizando dados provenientes de arquivos no formato .csv. A solução integra o uso da biblioteca Selenium WebDriver para a interação programática com interfaces web, permitindo a leitura, validação e manipulação dos dados extraídos do arquivo .csv de maneira eficiente e escalável. Além disso, o projeto inclui tratamentos de erros robustos para lidar com inconsistências nos dados e garantir o fluxo correto da automação, bem como mecanismos para identificar mensagens ou notificações no sistema online que possam impactar a execução do processo. Essa abordagem visa otimizar tarefas repetitivas, reduzir a possibilidade de erros humanos e aumentar a produtividade em cenários que demandam preenchimento de formulários de forma contínua e padronizada.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "FormsTramon"
+  },
+  "keywords": [
+    "Selenium"
+  ],
+  "author": "Lucas Weber",
+  "license": "ISC",
+  "dependencies": {
+    "csv-parser": "^3.1.0",
+    "csv-writer": "^1.6.0",
+    "selenium-webdriver": "^4.27.0"
+  }
+}
