@@ -52,6 +52,9 @@ async function processaCSV() {
         const itens = await lerCSV(filePath);
 
         for (let index = 0; index < itens.length; index++) {
+            itens[index].QUANTIDADE = parseInt(itens[index].QUANTIDADE);
+            itens[index].VALOR_UNIT_VENDA = itens[index].VALOR_UNIT_VENDA.replace('.', '');
+            itens[index].REF_PRODUTO = itens[index].REF_PRODUTO.replace('/', '');
             if (index + 1 < itens.length) {
                 // Verificar se a próxima linha tem os mesmos valores de NF e REF
                 if (

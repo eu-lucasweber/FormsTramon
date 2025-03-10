@@ -2,9 +2,7 @@ const { Builder, By, until, Key } = require('selenium-webdriver');
 const readline = require('readline');
 const lerCSV = require('./lerCSV');
 const ajustaCSV = require('./ajustaCSV');
-const trataMsg = require('./trataMsg');
-const Dados = require('./dados');
-const { dados } = require('./dados');
+const Dados = require('./Dados');
 
 // Cria interface para o usuário digitar a senha no console
 const rl = readline.createInterface({
@@ -108,6 +106,9 @@ async function insereProduto(driver, REF_PRODUTO, QUANTIDADE, VALOR_UNIT_VENDA, 
         const inputsValorUnit = await driver.wait(until.elementsLocated(By.css('div[data-aui-name="ttaint.intvl"] input')), 10000);
 
         await driver.wait(until.elementIsVisible(inputsRefProd[qnt_itens-1]), 10000);
+        if(qnt_itens==0)
+            await inputsRefProd[qnt_itens-1].click();
+        await delay(1000);
         await inputsRefProd[qnt_itens-1].sendKeys(`${REF_PRODUTO}`);
         await delay(2000);
         
@@ -148,7 +149,7 @@ async function confirma(driver) {
 async function app(driver, items) {
     try {
         // Login na aplicação
-        const dados = await Dados.dados(); 
+        const dados = await Dados();
         
         await start(driver, dados.site, dados.user, dados.pass);
         await delay(2000);
@@ -234,6 +235,7 @@ function verificaMesmoItens(itens){
 
     } finally {
         // Fecha o driver ao final
+        await delay(60000);
         await driver.quit();
     }
 
